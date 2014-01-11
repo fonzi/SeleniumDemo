@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<project basedir="." default="build" name="LogInLogOut">
+    <!--Initialize properties -->
+    <property environment="env"/>
+    <property name="junit.output.dir" value="junit"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <property name="src" value="src"/>
+    <property name="bin" value="bin"/>
+    <property name="lib" value="lib"/>
+    <property name="ChromeDriverLocation" value="lib/WebDrivers/ChromeDriver2.8/chromedriver.exe"/>
+    <property name="IE32DriverLocation" value="lib/WebDrivers/IE2.39/x32/IEDriverServer.exe"/>
+    <property name="IE64DriverLocation" value="lib/WebDrivers/IE2.39/x64/IEDriverServer.exe"/>
+    <property name="firefox" value="firefox"/>
+
+    <!-- class path initialize-->
+    <path id="mypath.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="lib/selenium-2.39.0/selenium-java-2.39.0-srcs.jar"/>
+        <pathelement location="lib/selenium-2.39.0/selenium-java-2.39.0.jar"/>
+        <pathelement location="lib/BenchMark/CarrotSearchLabs/junit-benchmarks-0.7.0"/>
+        <pathelement location="lib/Junit-4.11/junit-4.11.jar"/>
+    </path>
+
+    <!-- Initialize launch-->
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <!-- clean the bin dir -->
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+
+    <!-- clean build subprojects-->
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="mypath.classpath"/>
+        </javac>
+    </target>
+
+    <!-- build ref projects -->
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="compile project with Idea compiler" name="build-Idea-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+
+    <!--Should test with different webDrivers -->
+    <!--BatchTest task, includes the files that should be tested. Makes text files on project dir level-->
+    <target name="JUnit Test" description="Will run all of the JUnit Test on FF, Chrome, Safari">
+
+        <junit printsummary="yes" haltonfailure="no">
+            <sysproperty key="browser.property" value="firefox"/>
+            <classpath refid="mypath.classpath"/>
+            <formatter type="plain"/>
+            <batchtest fork="yes">
+                <fileset dir="${src}">
+                    <include name="**/LogInOutTest.java"/>
+                    <include name="**/R3searchSearch.java"/>
+                    <include name="**/AbstractSeleniumTet.java"/>
+                </fileset>
+            </batchtest>
+        </junit>
+
+        <junit printsummary="yes" haltonfailure="no">
+            <sysproperty key="browser.property" value="chrome"/>
+            <classpath refid="mypath.classpath"/>
+            <formatter type="plain"/>
+            <batchtest fork="yes">
+                <fileset dir="${src}">
+                    <include name="**/LogInOutTest.java"/>
+                    <include name="**/R3searchSearch.java"/>
+                    <include name="**/AbstractSeleniumTet.java"/>
+                </fileset>
+            </batchtest>
+        </junit>
+
+        <junit printsummary="yes" haltonfailure="no">
+            <sysproperty key="browser.property" value="safari"/>
+            <classpath refid="mypath.classpath"/>
+            <formatter type="xml"/>
+            <batchtest fork="yes">
+                <fileset dir="${src}">
+                    <include name="**/Navigate.java"/>
+                </fileset>
+            </batchtest>
+        </junit>
+
+    </target>
+
+    <!--Com.brightech.mb.selenium output dir-->
+    <target name="com.brightech.mb.selenium">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.brightech.mb.selenium.LogInOutTest" todir="${junit.output.dir}"/>
+            <test name="com.brightech.mb.selenium.R3searchSearch" todir="${junit.output.dir}"/>
+            <classpath refid="mypath.classpath"/>
+        </junit>
+    </target>
+
+     <!--Generate JUnit Report-->
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
+    </target>
+</project>
