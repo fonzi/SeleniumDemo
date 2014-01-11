@@ -4,7 +4,7 @@
     <list default="true" id="bcb35c65-d7e6-4d6c-9555-5fcfd1b9f13c" name="Default" comment="" />
     <ignored path="SeleniumDemo.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/AbstractSeleniumDemo.java" changelist="bcb35c65-d7e6-4d6c-9555-5fcfd1b9f13c" time="1389405612592" ignored="false" />
+    <file path="/AbstractSeleniumDemo.java" changelist="bcb35c65-d7e6-4d6c-9555-5fcfd1b9f13c" time="1389409592184" ignored="false" />
     <file path="/Navigate.java" changelist="bcb35c65-d7e6-4d6c-9555-5fcfd1b9f13c" time="1389405717938" ignored="false" />
     <file path="/build.xml" changelist="bcb35c65-d7e6-4d6c-9555-5fcfd1b9f13c" time="1389407800553" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -67,10 +67,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AbstractSeleniumDemo.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AbstractSeleniumDemo.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/developvazquez/www/AbstractSeleniumDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="523" selection-end="523" vertical-scroll-proportion="0.0">
+            <state line="13" column="52" selection-start="407" selection-end="407" vertical-scroll-proportion="0.31982633">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,16 +81,16 @@
       <file leaf-file-name="Navigate.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/developvazquez/www/test/Navigate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="82" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0">
+            <state line="3" column="16" selection-start="91" selection-end="91" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="42" selection-start="4182" selection-end="4182" vertical-scroll-proportion="0.5079595">
+            <state line="88" column="32" selection-start="3924" selection-end="3924" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -107,9 +107,9 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/AbstractSeleniumDemo.java" />
-        <option value="$PROJECT_DIR$/src/com/developvazquez/www/AbstractSeleniumDemo.java" />
-        <option value="$PROJECT_DIR$/src/com/developvazquez/www/test/Navigate.java" />
         <option value="$PROJECT_DIR$/build.xml" />
+        <option value="$PROJECT_DIR$/src/com/developvazquez/www/test/Navigate.java" />
+        <option value="$PROJECT_DIR$/src/com/developvazquez/www/AbstractSeleniumDemo.java" />
       </list>
     </option>
   </component>
@@ -504,26 +504,26 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/developvazquez/www/AbstractSeleniumDemo.java">
+    <entry file="file://$PROJECT_DIR$/build.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="523" selection-end="523" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="88" column="32" selection-start="3924" selection-end="3924" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/developvazquez/www/test/Navigate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="82" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0">
+        <state line="3" column="16" selection-start="91" selection-end="91" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/developvazquez/www/AbstractSeleniumDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="42" selection-start="4182" selection-end="4182" vertical-scroll-proportion="0.5079595">
-          <folding />
+        <state line="13" column="52" selection-start="407" selection-end="407" vertical-scroll-proportion="0.31982633">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

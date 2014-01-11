@@ -15,7 +15,6 @@ public abstract class AbstractSeleniumDemo
     private boolean myAcceptNextAlert = true;
 
     private StringBuffer myVerificationErrors = new StringBuffer();
-
     protected WebDriver myDriver;
     protected String myBaseUrl;
     protected String myBrowser = "browser.property";
