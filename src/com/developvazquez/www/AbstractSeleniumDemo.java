@@ -12,13 +12,12 @@ import static org.junit.Assert.fail;
 
 public abstract class AbstractSeleniumDemo
 {
-    private boolean myAcceptNextAlert = true;
-
-    private StringBuffer myVerificationErrors = new StringBuffer();
+    protected boolean myAcceptNextAlert = true;
+    protected StringBuffer myVerificationErrors = new StringBuffer();
     protected WebDriver myDriver;
-    protected String myBaseUrl;
-    protected String myBrowser = "browser.property";
-    protected Properties myProp = System.getProperties();
+    protected String myBaseUrl = "http://www.developvazquez.com";
+    protected String myBrowser = "chrome";//"browser.property";
+    //protected Properties myProp = System.getProperties();
 
     /**
      * Initializes the webDriver that is given. Takes myBrowser from build.xml and sets appropriate property
@@ -27,33 +26,25 @@ public abstract class AbstractSeleniumDemo
     @Before
     public void setUp() throws Exception
     {
-
-        System.out.println("val " + myBrowser + " is " + myProp.getProperty(myBrowser));
-
-        if(myProp.getProperty(myBrowser) == null)
+        if(myBrowser.equals(null))
         {
             System.err.println("The property was not passed. Prop == null");
         }
-        else if(myProp.getProperty(myBrowser).equals("firefox"))
+        else if(myBrowser.equals("firefox"))
         {
             myDriver = new FirefoxDriver();
-            myBaseUrl = "https://bugtracker2.mediabeacon.com/";
-            myDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         }
-        else if(myProp.getProperty(myBrowser).equals("chrome"))
+        else if(myBrowser.equals("chrome"))
         {
             //need to change to match machine location.
-            System.setProperty("webdriver.chrome.driver", "/Users/alfonsovazquez/Downloads/chromedriver");
+            System.setProperty("webdriver.chrome.driver", "C://Users//Fonzi//Desktop//SeleniumDemo//lib//WebDrivers//ChromeDriver2.8//chromedriver.exe");
             myDriver = new ChromeDriver();
-            myBaseUrl = "https://bugtracker2.mediabeacon.com/";
-            myDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         }
-        else if(myProp.getProperty(myBrowser).equals("safari"))
+        else if(myBrowser.equals("safari"))
         {
             myDriver = new SafariDriver();
-            myBaseUrl = "https://bugtracker2.mediabeacon.com/";
-            myDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         }
+        myDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
     /**
      * Stops the webDriver
